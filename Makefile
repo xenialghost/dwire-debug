@@ -46,7 +46,7 @@ ifdef WINDIR
 	i686-w64-mingw32-gcc -std=gnu99 -Wall -o $(BINARY) -Dwindows src/$(TARGET).c -lKernel32 -lWinmm -lComdlg32 -lWs2_32
 endif
 ifeq ($(UNAME_S),Darwin)
-	$(CC) -std=gnu99 -g -fno-pie -rdynamic -fPIC -Wall -o $(BINARY) src/$(TARGET).c /opt/homebrew/Cellar/libusb/1.0.29/lib/libusb-1.0.a /opt/homebrew/Cellar/libusb-compat/0.1.8/lib/libusb.a -I/opt/homebrew/Cellar/libusb-compat/0.1.8/include -ldl -Wl,-framework,IOKit -Wl,-framework,CoreFoundation -Wl,-framework,Security
+	$(CC) -std=gnu99 -g -fno-pie -rdynamic -fPIC -Wall -o $(BINARY) src/$(TARGET).c /opt/homebrew/opt/libusb/lib/libusb-1.0.a /opt/homebrew/opt/libusb-compat/lib/libusb.a -I/opt/homebrew/opt/libusb-compat/include -ldl -Wl,-framework,IOKit -Wl,-framework,CoreFoundation -Wl,-framework,Security
 endif
 ifeq ($(UNAME_S),Linux)
 	$(CC) -std=gnu99 -g -fno-pie -rdynamic -fPIC -Wall -o $(BINARY) src/$(TARGET).c -lusb -ldl
